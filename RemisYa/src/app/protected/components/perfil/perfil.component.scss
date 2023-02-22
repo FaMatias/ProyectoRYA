@@ -1,0 +1,36 @@
+
+@import '~primeng/resources/primeng.min.css';
+
+.izquierdo {
+
+align-items: center;
+color-scheme: #00A539;
+
+}
+
+p-button:disabled {
+    background-color: #00A539;
+    background: #019285 !important;
+    border:#016492
+}
+
+
+button {
+    background-color: #00A539;
+    border:#016492
+}
+
+button:hover {
+    background-color: #019285;
+    cursor: pointer;
+    border:#016492
+}
+
+
+.col-12 {
+    background-color: #00A539 !important;
+    border:#016492
+}
+
+
+

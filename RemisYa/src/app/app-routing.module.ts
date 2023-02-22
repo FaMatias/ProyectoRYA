@@ -1,44 +1,29 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FooterComponent } from './layout/footer/footer.component';
-import { HeaderComponent } from './layout/header/header.component';
-import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
-import { CarritoComponent } from './pages/carrito/carrito.component';
-import { ContactoComponent } from './pages/contacto/contacto.component';
-import { IniciarsesionComponent } from './pages/iniciarsesion/iniciarsesion.component';
-import { CrearProductoComponent } from './pages/producto/crear-producto.component';
-import { ListaProductoComponent } from './pages/producto/lista-producto.component';
-import { RegistrarseComponent } from './pages/registrarse/registrarse.component';
-import { SobrenosotrosComponent } from './pages/sobrenosotros/sobrenosotros.component';
-import { TiendaComponent } from './pages/tienda/tienda.component';
-import { TiendalogComponent } from './pages/tiendalog/tienda.component';
-import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
-import { PerfilComponent } from './perfil/perfil.component';
-import { AdminGuard } from './Services/admin.guard';
-import { NormalGuard } from './Services/normal.guard';
+import { ValidarTokenGuard } from './guards/validar-token.guard';
+
+
+import { HomeComponent } from './shared/pages/home/home.component';
+import { ProductosComponent } from './marketplace/pages/productos/productos.component';
+import { ProductoComponent } from './marketplace/pages/producto/producto.component';
+import { NotfoundComponent } from './shared/pages/notfound/notfound.component';
+import { NosotrosycontactoComponent } from './shared/components/nosotrosycontacto/nosotrosycontacto.component';
 
 const routes: Routes = [
-  { path: '', component: HeaderComponent, pathMatch: 'full' },
-  { path: 'home', component: HeaderComponent, pathMatch: 'full' },
-  { path: 'contact-us', component: ContactoComponent, pathMatch: 'full' },
-  { path: 'tienda', component: TiendaComponent, pathMatch: 'full' },
-  { path: 'cart', component: CarritoComponent, pathMatch: 'full' },
-  { path: 'Sobrenosotros', component: SobrenosotrosComponent, pathMatch: 'full' },
-  { path: 'faqs', component: FooterComponent, pathMatch: 'full' },
-  { path: 'registrarse', component: RegistrarseComponent, pathMatch: 'full' },
-  { path: 'account', component: FooterComponent, pathMatch: 'full' },
-  { path: 'LogIn', component: IniciarsesionComponent, pathMatch: 'full' },
-  { path: 'admin', component: DashboardComponent, pathMatch: 'full', canActivate: [AdminGuard] }, //canActivate: [AdminGuard]
-  { path: 'user-dashboard', component: UserDashboardComponent, pathMatch: 'full', canActivate: [NormalGuard] }, //canActivate: [AdminGuard]
-  { path: 'perfil', component: PerfilComponent, pathMatch: 'full', canActivate: [NormalGuard] }, //canActivate: [AdminGuard]
-  { path: 'tiendalog', component: TiendalogComponent, pathMatch: 'full'}, 
-  {path:'crear', component: CrearProductoComponent, pathMatch: 'full'},
-  {path:'lista', component: ListaProductoComponent, pathMatch: 'full'},
- 
-];
+ {path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)},
+ { path: 'productos', loadChildren: () => import('./marketplace/marketplace.module').then(m => m.MarketplaceModule)},
+ { path: 'dashboard', loadChildren: () => import('./protected/protected.module').then(m => m.ProtectedModule), canActivate: [ ValidarTokenGuard ] },
+ { path: '', component: HomeComponent},
+ { path: 'productos', component:ProductosComponent},{path: 'producto', component:ProductoComponent},
+ { path: 'carrito', loadChildren: () => import('./protected/protected.module').then(m => m.ProtectedModule), canActivate: [ ValidarTokenGuard ] },
+ { path: '**', pathMatch: 'full', component: NotfoundComponent },
+ { path: 'nos', pathMatch: 'full', component: NosotrosycontactoComponent },
+ ];
+
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [CommonModule, RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

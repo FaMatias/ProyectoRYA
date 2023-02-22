@@ -1,0 +1,33 @@
+<div class="detalleproducto">
+    <div class="titulo">
+        <h2>Categoría: {{categoria}}</h2>
+    </div>
+    <div class="container">
+        <div class="imagencontainer">
+            <img title="" alt="titulo" class="card-img" src="{{producto.imagen}}" width="700">
+        </div>    
+        <div class="containertexto">
+            <div class="containertitulo">
+                <h5 class="card-title">{{producto.nombre}} </h5>
+            </div>
+            <div class="texto">
+                <p class="card-text">{{producto.descripcion}}</p>
+                <p class="card-precio">${{producto.precio}}</p>
+                <p class="card-stock">Stock disponible: {{producto.stock}} unidades.</p>
+                <div class="botones">
+                
+                <!--<button class=" btn btn-danger botonfavoritos" name="btnFav" value="Agregar">Agregar a favoritos<i class="bi bi-suit-heart-fill"></i> </button>-->
+                <button *ngIf="logueado && role=='USUARIO' && producto.stock>0" class="btn btn-warning botoncarrito" name="btnAccion" value="Agregar" (click)="evaluarStock(producto.id,producto.nombre)" [disabled]="isLoading">Agregar al carrito</button>
+                <button *ngIf="!logueado" class="btn btn-warning botoncarrito" name="btnAccion" value="Agregar" (click)="noLogueado()" [disabled]="isLoading">Agregar al carrito</button>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p-dialog [visible]="isLoading" >
+
+	<img src="assets/img/loading.gif" alt="AGREGANDO PRODUCTO... ESPERE">
+	<p>Agregando el producto... espere</p>
+
+</p-dialog>

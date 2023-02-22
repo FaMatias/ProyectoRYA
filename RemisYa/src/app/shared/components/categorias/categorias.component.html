@@ -1,0 +1,111 @@
+<div class="container">
+
+    <div class="d-flex justify-content-center align-items-center mt-5"><a class="botoncategorias" routerLink="productos"> <button pButton type="button" label="Productos & Servicios" ></button></a>
+    </div>
+    <br><br>
+    <div class="row">
+        <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            <div class="icon-box">
+               <div class="icon mb-3"><i class="bi bi-alarm"></i></div>
+               <h4>Rápido</h4>
+               <p>En cuestión de segundos te aseguramos un transporte sin demoras, elegimos la mejor vía para que llegues a destino en el menor tiempo.</p>
+            </div>
+         </div>
+
+         <div class="col-lg-3 col-md-6 mt-4 mt-md-0 d-flex align-items-stretch">
+            <div class="icon-box">
+               <div class="icon mb-3"><i class="bi bi-geo-alt"></i></div>
+               <h4>Seguro</h4>
+               <p>Contamos con rastreo satelital donde podrás ver el recorrido del coche,además tenes todo el perfil del chofer que esta a cargo del viaje.</p>
+            </div>
+         </div>
+
+         <div class="col-lg-3 col-md-6 mt-4 mt-lg-0 d-flex align-items-stretch">
+            <div class="icon-box">
+               <div class="icon mb-3"><i class="bi bi-journal-check"></i></div>
+               <h4>Fácil</h4>
+               <p>Solamente con un click, tenés la posibilidad de conseguir un viaje.<strong>Lo antes posible.</strong></p>
+            </div>
+         </div>
+
+         <div class="col-lg-3 col-md-6 mt-4 mt-lg-0 d-flex align-items-stretch">
+            <div class="icon-box">
+               <div class="icon mb-3"><i class="bi bi-code-square"></i></div>
+               <h4>Suscripciones mensuales</h4>
+               <p>Al registrarse, podrá utilizar nuestros servicios y comprar suscripciones mensuales.</p>
+            </div>
+         </div>
+      </div>
+      <br><br>
+    <div class="d-flex justify-content-center mt-3"> <span class="text text-center">¡HOLA! Somos REMIS YA! ARGENTINA.<br><strong>Con nuestro servicio le facilitamos el pedido de remis, ya que estamos en contacto con varias agencias de la ciudad de Córdoba</strong></span>
+    </div>
+    <div class="col align-items-center" >
+        <app-buscador  (onEnter)="buscar($event)"></app-buscador>
+  </div>
+    <div class="row mt-2 g-4 containerProductos">
+        <div class="col-md-3">
+            <div class="card p-1 cardsProductos">
+                <div class="d-flex justify-content-between align-items-center p-2" routerLink="productos/Celulares">
+                    <div class="flex-column lh-1 imagename" > <span>Accesorios </span> </div>
+                    <div> <img src="https://images.pexels.com/photos/33488/navigation-car-drive-road.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" height="100" width="100" /> </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card p-2 cardsProductos">
+                <div class="d-flex justify-content-between align-items-center p-2" routerLink="productos/Auriculares">
+                    <div class="flex-column lh-1 imagename"> <span>Llaveros</span> </div>
+                    <div> <img src="https://images.pexels.com/photos/11294497/pexels-photo-11294497.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" height="100" width="100" /> </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card p-2 cardsProductos">
+                <div class="d-flex justify-content-between align-items-center p-2" routerLink="productos/Relojes Inteligentes">
+                    <div class="flex-column lh-1 imagename"> <span>Aromatizadores</span> </div>
+                    <div> <img src="https://images.pexels.com/photos/1405152/pexels-photo-1405152.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" height="100" width="100" /> </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card p-2 cardsProductos">
+                <div class="d-flex justify-content-between align-items-center p-2" routerLink="productos/Climatizadores">
+                    <div class="flex-column lh-1 imagename"> <span>GPS y localizadores</span> </div>
+                    <div> <img src="https://images.pexels.com/photos/13062233/pexels-photo-13062233.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" height="100" width="100" /> </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card p-2 cardsProductos">
+                <div class="d-flex justify-content-between align-items-center p-2" routerLink="productos/Aspiradoras">
+                    <div class="flex-column lh-1 imagename"> <span>Abonos mensuales</span> </div>
+                    <div> <img src="https://images.pexels.com/photos/1051071/pexels-photo-1051071.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" height="100" width="100" /> </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+             <div class="card p-2 cardsProductos">
+                <div class="d-flex justify-content-between align-items-center p-2" routerLink="productos/Lavarropas">
+                    <div class="flex-column lh-1 imagename"> <span>Abonos quincenales</span> </div>
+                    <div> <img src="https://images.pexels.com/photos/2537603/pexels-photo-2537603.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" height="100" width="100" /> </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card p-2 cardsProductos">
+                <div class="d-flex justify-content-between align-items-center p-2" routerLink="productos/Televisores">
+                    <div class="flex-column lh-1 imagename"> <span>Abonos practicos</span> </div>
+                    <div> <img src="https://images.pexels.com/photos/3967677/pexels-photo-3967677.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" height="100" width="100" /> </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card p-2 cardsProductos">
+                <div class="d-flex justify-content-between align-items-center p-2" routerLink="productos/Computadoras">
+                    <div class="flex-column lh-1 imagename"> <span>Abonos mascotas</span> </div>
+                    <div> <img src="https://images.pexels.com/photos/4916680/pexels-photo-4916680.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" height="100" width="100" /> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,99 @@
+<head>
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<header class="section-header">
+
+    <section class="header-main border-bottom bg-white">
+        <div class="container-fluid">
+           <div class="row pr-4 pt-2 pb-2 d-flex align-items-center">
+            
+               <div class="col-md-2"> 
+                   <a class="volver" routerLink=""><img class="d-flex d-md-flex CENTRADO" src="../../../../assets/img/brandLogo.png" width="250"></a>
+                   
+               </div>
+               <!---Menú-->
+               <div class="col-xs-2 col-sm-2 align-items-center"></div>
+                <div class="col-xs-2 col-sm-2 align-items-center"><a class="botonnosotros" routerLink="nos"> <button pButton type="button" label=". Queres saber  quienes somos" ><span class="bi bi-hand-index-thumb"></span></button></a></div>
+                <div class="col-xs-2 col-sm-2 align-items-center"><a class="botonnos" href="../nosotrosycontacto/nosotrosycontacto.component.html"> <button pButton type="button" label=". Ponete en contacto con nosotros" ><span class="bi bi-telephone-inbound-fill"></span></button></a></div>
+
+
+               <!---Carrito -->
+               <div class="col-md-2">
+                   <div class="d-flex d-none d-md-flex flex-row align-items-left" *ngIf="rol==='USUARIO'">
+                       <span class="shop-bag"><a class="carritornlace" routerLink="dashboard/carrito"><i class='bi bi-bag-check-fill'></i></a></span>
+                       <div class="d-flex flex-column ms-2">
+                            <span class="qty" *ngIf="productos.length>0">{{productos.length}} productos</span>
+                           <span class="fw-bold" *ngIf="precioCarrito>0 && productos.length>0">{{precioCarrito | currency}}</span>
+                       </div>    
+                   </div>           
+               </div>
+
+               <div class="col-md-2">
+             
+         
+
+                    <ul class="navbar-nav d-flex align-items-center"
+                    *ngIf="nologueado==false">
+                      <li class="nav-item">
+                          <div class="d-flex flex-row">
+                              <img src="https://i.imgur.com/GuAB8OE.jpeg" class="rounded-circle" width="30">
+                          </div>
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          {{this.usuario}}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <li><a class="dropdown-item" href="/dashboard">Mi Cuenta</a></li>
+                          <li><a class="dropdown-item" 
+                            *ngIf="rol!='USUARIO'"
+                            routerLink="/dashboard/subir-producto">Publicar Producto</a></li>
+                            <li><a class="dropdown-item" 
+                              *ngIf="rol!='USUARIO'"
+                              routerLink="/dashboard/misproductos">Ver Mis Productos</a></li>
+                            <li><a class="dropdown-item" 
+                              *ngIf="rol=='ADMINISTRADOR'"
+                              routerLink="/dashboard/categoria">Panel Categorias</a></li>
+                          <li><a class="dropdown-item clickeable" (click)="cerrarSesion()">Cerrar Sesión</a></li>
+                        </ul>
+                      </li>
+                  
+                  
+                      </ul>
+
+                      <ul class="navbar-nav d-flex align-items-center"
+                      *ngIf="nologueado==true">
+                        <li class="nav-item">
+                            <div class="d-flex flex-row">
+                                <button pButton onclick="location.href='/auth/login'" > Iniciar Sesion / Registrarse </button>
+                            </div>
+                        </li>                   
+                    
+                        </ul>
+
+
+                         
+            </div>
+
+
+           </div>
+        </div> 
+    </section>
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand d-md-none d-md-flex" href="#">Categorias</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav"
+          *ngFor="let categoria of categorias">
+            <li class=" -item">
+              <a class="nav-link" href="/productos/{{categoria.descripcion}}">{{categoria.descripcion}}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    </header>

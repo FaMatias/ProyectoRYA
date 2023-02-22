@@ -1,0 +1,105 @@
+
+package com.example.RYArgentina.controller;
+
+import com.example.RYArgentina.model.DTO.EditUserDTO;
+import com.example.RYArgentina.model.DTO.PersonaUsuarioDto;
+import com.example.RYArgentina.model.Usuario;
+import com.example.RYArgentina.repository.UsuarioRepositorio;
+import com.example.RYArgentina.service.AppService;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+
+import static java.lang.Long.parseLong;
+
+
+@RestController
+@RequestMapping
+@Api(value = "AppController")
+public class AppControlador {
+    
+    @Autowired
+    AppService service;
+    @Autowired
+    UsuarioRepositorio usuarioRepositorio;
+    
+    
+  // @CrossOrigin(origins = "http://localhost:5500")
+   @PostMapping("/registro")
+   public ResponseEntity<?> crear (@RequestBody  PersonaUsuarioDto personaRequest) throws Exception{
+       
+      service.crear(personaRequest);
+
+       return new ResponseEntity (personaRequest,HttpStatus.CREATED);
+       
+   }
+   
+   @PostMapping("/login")
+   public ResponseEntity<?> login (@RequestBody Usuario usuario) throws Exception{
+       
+       return new ResponseEntity(service.login(usuario),HttpStatus.OK);
+   }
+   
+   
+  
+   @GetMapping("/{id}")
+   public ResponseEntity<?> getPersonByid (@PathVariable Long id){
+
+       return new ResponseEntity (service.mostraPorId(id),HttpStatus.OK);
+   }
+
+
+    @GetMapping("valid")
+    public ResponseEntity<?> getUservalid (HttpServletRequest request){
+
+
+
+        String token = request.getHeader("Authorization");
+        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        return new ResponseEntity<>(userDetails.getAuthorities(), HttpStatus.OK);
+    }
+    @ApiOperation(value = "Retorna lista de usaurios")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Retorna a lista de usuarios"),
+            @ApiResponse(code = 403, message = "No autorizado para hacer la transaccion"),
+            @ApiResponse(code = 500, message = "Ups! error de sistema "),
+    })
+    @GetMapping("users")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    public ResponseEntity<?> getUsers (){
+       return new ResponseEntity<>(service.getUsers(), HttpStatus.OK);
+    }
+
+    @GetMapping("/users/{id}")
+    public ResponseEntity<?> getUserById (@PathVariable Long id){
+
+        return new ResponseEntity (service.getUserById(id),HttpStatus.OK);
+    }
+
+    @PutMapping("/users/{id}")
+    public ResponseEntity<?> getUserById (@PathVariable ("id") Long id,
+                                          @RequestBody EditUserDTO editUserDTO){
+
+        return new ResponseEntity (service.putUserById(id,editUserDTO),HttpStatus.OK);
+    }
+
+    @PutMapping("/users/{id}/delete")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    public ResponseEntity<?> deleteUserById (@PathVariable ("id") Long id){
+
+        service.deleteUSer(id);
+        return new ResponseEntity (HttpStatus.OK);
+    }
+}

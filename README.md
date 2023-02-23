@@ -12,6 +12,7 @@
 Es una herramienta para viajar mucho más sencilla y sin esperas. Además, también ofrecemos servicios de transporte y viajes dentro de la ciudad, viajes fuera del término municipal, transporte escolar y abonos mensuales para su comodidad. </p>
 
 
+* ATENCION! Proyecto modificado para cumplir consignas de E-COMMERCE.
 -----------------------------------------------------------------------------------------
 <H3>Mapa del sitio</H3>
 
@@ -56,15 +57,5 @@ Finalmente usamos el comando npm start para levantar nuestro servidor.
 Con esto listo ya podemos ver nuestro proyecto en el puerto 4200 como es costumbre.
 
 Bueno sin mas esto es todo para clonar y ejecutar proyectos de angular desde GitHub.
-
------------------------------------------------------------------------------------------
-
-REPOSITORIO ORIGINAL VERSION 2021: 
-
-# a2-g6-a2-g6
-a2-g6-a2-g6 created by GitHub Classroom
-
-Proyecto original alojado en (Ver  ramas):
-https://github.com/PPROF1-2021/a2-g6-a2-g6/tree/master
 
 -----------------------------------------------------------------------------------------

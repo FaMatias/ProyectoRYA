@@ -12,9 +12,9 @@ Miembros del proyecto: Fabricio Matías Toso
 Vista previa de la aplicación
 
 
-<H3>Clic para Documentación IEEE830 </H3>
+<H3>Documentación IEEE830 en su respectiva carpeta</H3>
 
-<H2>Clic para Registro sprints </H2>
+<H2>Clic para Registro sprints en su respectiva carpeta</H2>
 
 Tener presente que el proyecto se encuentra en constante avance por lo que esta documentacion sufre modificaiones premantentemete.
 

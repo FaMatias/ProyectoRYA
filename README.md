@@ -43,7 +43,7 @@ Con estos elementos ya podemos clonar y ejecutar nuestro proyecto en el servidor
 
 Para clonar el repositorio desde GitHub usamos el comando git clone, y le pasamos como parámetro la url del repositorio que deseamos clonar. Para Esto nos posicionamos desde la consola de git en el lugar que deseemos clonar nuestro proyecto y usamos el comando
 
-"git clone https://https://github.com/PPROF2-2022ProgWeb/g28-aula2-remisapp-g28"
+"git clone https://github.com/FaMatias/ProyectoRYA.git"
 
 Una vez clonado nuestro proyecto nos movemos al interior de la carpeta del mismo, y ejecutamos el comando npm install. Recuerden que si ejecutan este comando dese sistemas unix deberá estar precedido por sudo, para darle permisos, y si lo ejecutan desde windows recuerden inicial la consola con privilegios de administrador.
 

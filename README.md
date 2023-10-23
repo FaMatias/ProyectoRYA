@@ -13,6 +13,9 @@ Es una herramienta para viajar mucho más sencilla y sin esperas. Además, tambi
 
 
 * ATENCION! Proyecto modificado para cumplir consignas de E-COMMERCE.
+
+ ![screencapture-localhost-4200-2023-02-22-22_46_46](https://github.com/FaMatias/ProyectoRYA/assets/88169799/bd20f664-62ed-404e-b060-8dc144ddc34e)
+
 -----------------------------------------------------------------------------------------
 <H3>Mapa del sitio</H3>
 
